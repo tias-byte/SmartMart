@@ -1,4 +1,4 @@
-# SmartMart
+# smartmart
 
 A new Flutter project.
 

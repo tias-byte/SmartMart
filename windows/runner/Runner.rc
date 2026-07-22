@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "SmartMart" "\0"
+            VALUE "FileDescription", "smartmart" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "smartcart" "\0"
+            VALUE "InternalName", "smartmart" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "smartcart.exe" "\0"
-            VALUE "ProductName", "SmartMart" "\0"
+            VALUE "OriginalFilename", "smartmart.exe" "\0"
+            VALUE "ProductName", "smartmart" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
