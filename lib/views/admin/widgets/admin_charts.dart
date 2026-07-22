@@ -69,10 +69,11 @@ class _AdminChartsState extends State<AdminCharts> {
                           ],
                         ),
                         const SizedBox(height: 4),
-                        Row(
+                        Wrap(
+                          spacing: 16,
+                          runSpacing: 4,
                           children: [
                             _legendItem("Orders Velocity", AppTheme.primary),
-                            const SizedBox(width: 16),
                             _legendItem("Fleet Active", const Color(0xFF8B5CF6)),
                           ],
                         ),
