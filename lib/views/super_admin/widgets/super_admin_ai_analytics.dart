@@ -3,10 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../../../theme/app_theme.dart';
 
-class AdminAiAnalytics extends StatelessWidget {
+class SuperAdminAiAnalytics extends StatelessWidget {
   final bool isDark;
 
-  const AdminAiAnalytics({super.key, required this.isDark});
+  const SuperAdminAiAnalytics({super.key, required this.isDark});
 
   @override
   Widget build(BuildContext context) {
@@ -644,3 +644,4 @@ class DemandForecastPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
+

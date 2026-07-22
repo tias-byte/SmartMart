@@ -3,9 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../../../theme/app_theme.dart';
 import '../../../models/quick_commerce_models.dart';
-import 'admin_orders_table.dart';
+import 'super_admin_orders_table.dart';
 
-class AdminTabViews {
+class SuperAdminTabViews {
   static Widget buildTabView({
     required BuildContext context,
     required String activeTab,
@@ -55,7 +55,7 @@ class AdminTabViews {
           icon: LucideIcons.shoppingBag,
         ),
         const SizedBox(height: 20),
-        AdminOrdersTable(isDark: isDark, onSelectOrder: onSelectOrder),
+        SuperAdminOrdersTable(isDark: isDark, onSelectOrder: onSelectOrder),
       ],
     );
   }
@@ -1065,3 +1065,4 @@ class AdminTabViews {
     );
   }
 }
+

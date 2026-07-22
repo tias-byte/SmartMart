@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../theme/app_theme.dart';
 import '../../../models/quick_commerce_models.dart';
 
-class AdminKPIs extends StatelessWidget {
+class SuperAdminKPIs extends StatelessWidget {
   final bool isDark;
 
-  const AdminKPIs({super.key, required this.isDark});
+  const SuperAdminKPIs({super.key, required this.isDark});
 
   @override
   Widget build(BuildContext context) {
@@ -167,3 +167,4 @@ class AdminKPIs extends StatelessWidget {
     );
   }
 }
+

@@ -4,16 +4,16 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../theme/app_theme.dart';
 import '../../../models/quick_commerce_models.dart';
 
-class AdminCharts extends StatefulWidget {
+class SuperAdminCharts extends StatefulWidget {
   final bool isDark;
 
-  const AdminCharts({super.key, required this.isDark});
+  const SuperAdminCharts({super.key, required this.isDark});
 
   @override
-  State<AdminCharts> createState() => _AdminChartsState();
+  State<SuperAdminCharts> createState() => _SuperAdminChartsState();
 }
 
-class _AdminChartsState extends State<AdminCharts> {
+class _SuperAdminChartsState extends State<SuperAdminCharts> {
   String? _selectedMetric;
   String get selectedMetric => _selectedMetric ?? "Orders";
 
@@ -462,3 +462,4 @@ class SlaDonutPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
+

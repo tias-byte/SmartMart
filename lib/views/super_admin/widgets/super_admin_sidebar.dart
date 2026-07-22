@@ -3,13 +3,13 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../theme/app_theme.dart';
 
-class AdminSidebar extends StatelessWidget {
+class SuperAdminSidebar extends StatelessWidget {
   final String activeTab;
   final Function(String) onSelectTab;
   final bool isDark;
   final VoidCallback? onLogout;
 
-  const AdminSidebar({
+  const SuperAdminSidebar({
     super.key,
     required this.activeTab,
     required this.onSelectTab,
@@ -256,3 +256,4 @@ class AdminSidebar extends StatelessWidget {
     );
   }
 }
+

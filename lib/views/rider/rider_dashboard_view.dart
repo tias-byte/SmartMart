@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../../theme/app_theme.dart';
-import '../admin/widgets/admin_fleet_map.dart';
+import '../super_admin/widgets/super_admin_fleet_map.dart';
 import 'widgets/rider_home_tab.dart';
 import 'widgets/rider_earnings_tab.dart';
 import 'widgets/rider_profile_tab.dart';
@@ -212,7 +212,7 @@ class _RiderDashboardViewState extends State<RiderDashboardView> {
                           child: SingleChildScrollView(
                             child: Column(
                               children: [
-                                AdminFleetMap(isDark: isDark),
+                                SuperAdminFleetMap(isDark: isDark),
                                 const SizedBox(height: 20),
                                 _buildDesktopRiderMetrics(isDark),
                               ],

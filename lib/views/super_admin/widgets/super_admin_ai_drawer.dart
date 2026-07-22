@@ -4,11 +4,11 @@ import 'package:lucide_icons/lucide_icons.dart';
 import '../../../theme/app_theme.dart';
 import '../../../models/quick_commerce_models.dart';
 
-class AdminAiDrawer extends StatelessWidget {
+class SuperAdminAiDrawer extends StatelessWidget {
   final bool isDark;
   final VoidCallback onClose;
 
-  const AdminAiDrawer({
+  const SuperAdminAiDrawer({
     super.key,
     required this.isDark,
     required this.onClose,
@@ -202,3 +202,4 @@ class AdminAiDrawer extends StatelessWidget {
     );
   }
 }
+

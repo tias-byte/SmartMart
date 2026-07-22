@@ -3,11 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../../../theme/app_theme.dart';
 
-class AdminQuickActions extends StatelessWidget {
+class SuperAdminQuickActions extends StatelessWidget {
   final bool isDark;
   final Function(String) onTriggerAction;
 
-  const AdminQuickActions({
+  const SuperAdminQuickActions({
     super.key,
     required this.isDark,
     required this.onTriggerAction,
@@ -120,3 +120,4 @@ class AdminQuickActions extends StatelessWidget {
     );
   }
 }
+

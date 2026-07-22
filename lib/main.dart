@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'theme/app_theme.dart';
 import 'views/login_view.dart';
-import 'views/admin/admin_dashboard_view.dart';
+import 'views/super_admin/super_admin_dashboard_view.dart';
 import 'views/rider/rider_dashboard_view.dart';
 
 void main() {
@@ -38,7 +38,7 @@ class _SmartMartAppState extends State<SmartMartApp> {
   Widget _buildActiveView() {
     switch (currentRoute) {
       case "ADMIN":
-        return AdminDashboardView(
+        return SuperAdminDashboardView(
           isDark: isDark,
           onToggleTheme: () => setState(() => isDark = !isDark),
           onLogout: () => setState(() => currentRoute = "LOGIN"),

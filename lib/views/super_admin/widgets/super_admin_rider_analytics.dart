@@ -3,10 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../../../theme/app_theme.dart';
 
-class AdminRiderAnalytics extends StatelessWidget {
+class SuperAdminRiderAnalytics extends StatelessWidget {
   final bool isDark;
 
-  const AdminRiderAnalytics({super.key, required this.isDark});
+  const SuperAdminRiderAnalytics({super.key, required this.isDark});
 
   @override
   Widget build(BuildContext context) {
@@ -421,3 +421,4 @@ class AdminRiderAnalytics extends StatelessWidget {
     );
   }
 }
+

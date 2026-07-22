@@ -3,24 +3,24 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../../theme/app_theme.dart';
 import '../../models/quick_commerce_models.dart';
-import 'widgets/admin_sidebar.dart';
-import 'widgets/admin_header.dart';
-import 'widgets/admin_kpis.dart';
-import 'widgets/admin_charts.dart';
-import 'widgets/admin_fleet_map.dart';
-import 'widgets/admin_orders_table.dart';
-import 'widgets/admin_ai_drawer.dart';
-import 'widgets/admin_quick_actions.dart';
-import 'widgets/admin_tab_views.dart';
-import 'widgets/admin_ai_analytics.dart';
-import 'widgets/admin_rider_analytics.dart';
+import 'widgets/super_admin_sidebar.dart';
+import 'widgets/super_admin_header.dart';
+import 'widgets/super_admin_kpis.dart';
+import 'widgets/super_admin_charts.dart';
+import 'widgets/super_admin_fleet_map.dart';
+import 'widgets/super_admin_orders_table.dart';
+import 'widgets/super_admin_ai_drawer.dart';
+import 'widgets/super_admin_quick_actions.dart';
+import 'widgets/super_admin_tab_views.dart';
+import 'widgets/super_admin_ai_analytics.dart';
+import 'widgets/super_admin_rider_analytics.dart';
 
-class AdminDashboardView extends StatefulWidget {
+class SuperAdminDashboardView extends StatefulWidget {
   final bool isDark;
   final VoidCallback onToggleTheme;
   final VoidCallback? onLogout;
 
-  const AdminDashboardView({
+  const SuperAdminDashboardView({
     super.key,
     required this.isDark,
     required this.onToggleTheme,
@@ -28,10 +28,10 @@ class AdminDashboardView extends StatefulWidget {
   });
 
   @override
-  State<AdminDashboardView> createState() => _AdminDashboardViewState();
+  State<SuperAdminDashboardView> createState() => _SuperAdminDashboardViewState();
 }
 
-class _AdminDashboardViewState extends State<AdminDashboardView> {
+class _SuperAdminDashboardViewState extends State<SuperAdminDashboardView> {
   String? _activeTab;
   String? _selectedTimeframe;
   String? _selectedStoreFilter;
@@ -56,7 +56,7 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
     final double screenWidth = MediaQuery.of(context).size.width;
     final bool isMobile = screenWidth <= 900;
 
-    final Widget sidebar = AdminSidebar(
+    final Widget sidebar = SuperAdminSidebar(
       activeTab: activeTab,
       onSelectTab: (tab) {
         setState(() => _activeTab = tab);
@@ -83,7 +83,7 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
                 child: Column(
                   children: [
                     // Top Header Bar
-                    AdminHeader(
+                    SuperAdminHeader(
                       isDark: widget.isDark,
                       onToggleTheme: widget.onToggleTheme,
                       onOpenAiCopilot: () => setState(() => isAiDrawerOpen = true),
@@ -232,19 +232,19 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
 
                                   if (dashboardMode == "Overview") ...[
                                     // Data Analytics KPI Cards Grid
-                                    AdminKPIs(isDark: widget.isDark),
+                                    SuperAdminKPIs(isDark: widget.isDark),
                                     const SizedBox(height: 20),
 
                                     // Multi-Chart Data Analytics Visualizations
-                                    AdminCharts(isDark: widget.isDark),
+                                    SuperAdminCharts(isDark: widget.isDark),
                                     const SizedBox(height: 20),
 
                                     // Live Fleet & Order Canvas Map
-                                    AdminFleetMap(isDark: widget.isDark),
+                                    SuperAdminFleetMap(isDark: widget.isDark),
                                     const SizedBox(height: 20),
 
                                     // Orders Stream & Telemetry Table
-                                    AdminOrdersTable(
+                                    SuperAdminOrdersTable(
                                       isDark: widget.isDark,
                                       onSelectOrder: (order) {
                                         setState(() => selectedOrder = order);
@@ -254,7 +254,7 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
                                     const SizedBox(height: 20),
 
                                     // Quick Actions Operations Bar
-                                    AdminQuickActions(
+                                    SuperAdminQuickActions(
                                       isDark: widget.isDark,
                                       onTriggerAction: (actionName) {
                                         ScaffoldMessenger.of(context).showSnackBar(
@@ -266,13 +266,13 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
                                       },
                                     ),
                                   ] else if (dashboardMode == "AI Analytics") ...[
-                                    AdminAiAnalytics(isDark: widget.isDark),
+                                    SuperAdminAiAnalytics(isDark: widget.isDark),
                                   ] else ...[
-                                    AdminRiderAnalytics(isDark: widget.isDark),
+                                    SuperAdminRiderAnalytics(isDark: widget.isDark),
                                   ],
                                 ],
                               )
-                            : AdminTabViews.buildTabView(
+                            : SuperAdminTabViews.buildTabView(
                                 context: context,
                                 activeTab: activeTab,
                                 isDark: widget.isDark,
@@ -298,7 +298,7 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
               right: 0,
               top: 0,
               bottom: 0,
-              child: AdminAiDrawer(
+              child: SuperAdminAiDrawer(
                 isDark: widget.isDark,
                 onClose: () => setState(() => isAiDrawerOpen = false),
               ),
@@ -421,3 +421,4 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
     );
   }
 }
+

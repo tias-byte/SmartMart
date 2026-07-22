@@ -4,21 +4,21 @@ import 'package:lucide_icons/lucide_icons.dart';
 import '../../../theme/app_theme.dart';
 import '../../../models/quick_commerce_models.dart';
 
-class AdminOrdersTable extends StatefulWidget {
+class SuperAdminOrdersTable extends StatefulWidget {
   final bool isDark;
   final Function(OrderModel) onSelectOrder;
 
-  const AdminOrdersTable({
+  const SuperAdminOrdersTable({
     super.key,
     required this.isDark,
     required this.onSelectOrder,
   });
 
   @override
-  State<AdminOrdersTable> createState() => _AdminOrdersTableState();
+  State<SuperAdminOrdersTable> createState() => _SuperAdminOrdersTableState();
 }
 
-class _AdminOrdersTableState extends State<AdminOrdersTable> {
+class _SuperAdminOrdersTableState extends State<SuperAdminOrdersTable> {
   String? _selectedFilter;
   String get selectedFilter => _selectedFilter ?? "All";
 
@@ -314,3 +314,4 @@ class _AdminOrdersTableState extends State<AdminOrdersTable> {
     );
   }
 }
+
