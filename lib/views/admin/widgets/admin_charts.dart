@@ -27,8 +27,6 @@ class _AdminChartsState extends State<AdminCharts> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final isDesktop = constraints.maxWidth > 1100;
-
         final Widget hourlyCard = Container(
           height: 360,
           padding: const EdgeInsets.all(20),
@@ -254,7 +252,10 @@ class _AdminChartsState extends State<AdminCharts> {
           ),
         );
 
-        if (isDesktop) {
+        final isLargeDesktop = constraints.maxWidth > 1200;
+        final isMediumDesktop = constraints.maxWidth > 800 && constraints.maxWidth <= 1200;
+
+        if (isLargeDesktop) {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -263,6 +264,22 @@ class _AdminChartsState extends State<AdminCharts> {
               Expanded(flex: 3, child: slaCard),
               const SizedBox(width: 16),
               Expanded(flex: 3, child: categoryCard),
+            ],
+          );
+        } else if (isMediumDesktop) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              hourlyCard,
+              const SizedBox(height: 16),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(child: slaCard),
+                  const SizedBox(width: 16),
+                  Expanded(child: categoryCard),
+                ],
+              ),
             ],
           );
         } else {

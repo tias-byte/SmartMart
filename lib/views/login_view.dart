@@ -107,7 +107,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       const SizedBox(width: 10),
                       Text(
-                        "SmartMart AI Platform",
+                        "SmartMart",
                         style: GoogleFonts.poppins(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -118,35 +118,6 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   Row(
                     children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        decoration: BoxDecoration(
-                          color: AppTheme.primary.withOpacity(0.12),
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: AppTheme.primary.withOpacity(0.3)),
-                        ),
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 7,
-                              height: 7,
-                              decoration: const BoxDecoration(
-                                color: AppTheme.primary,
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                            const SizedBox(width: 6),
-                            Text(
-                              "DEMO AUTH PORTAL",
-                              style: GoogleFonts.inter(
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
-                                color: AppTheme.primary,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                       const SizedBox(width: 12),
                       IconButton(
                         onPressed: widget.onToggleTheme,
@@ -348,14 +319,6 @@ class _LoginViewState extends State<LoginView> {
                                   ),
                                 ),
                               ],
-                            ),
-                            Text(
-                              "Demo Mode • Pre-authenticated",
-                              style: GoogleFonts.inter(
-                                fontSize: 11,
-                                fontWeight: FontWeight.w500,
-                                color: AppTheme.primary,
-                              ),
                             ),
                           ],
                         ),

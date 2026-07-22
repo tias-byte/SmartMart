@@ -71,101 +71,97 @@ class AdminKPIs extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         int crossAxisCount = constraints.maxWidth > 1200 ? 6 : (constraints.maxWidth > 800 ? 3 : (constraints.maxWidth > 550 ? 2 : 1));
-        double childAspectRatio = constraints.maxWidth > 1200 ? 1.35 : (constraints.maxWidth > 800 ? 1.9 : (constraints.maxWidth > 550 ? 1.65 : 2.55));
+        double cardWidth = (constraints.maxWidth - (crossAxisCount - 1) * 14) / crossAxisCount;
+        if (cardWidth < 120) cardWidth = 120;
 
-        return GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: crossAxisCount,
-            crossAxisSpacing: 14,
-            mainAxisSpacing: 14,
-            childAspectRatio: childAspectRatio,
-          ),
-          itemCount: kpis.length,
-          itemBuilder: (context, index) {
-            final kpi = kpis[index];
+        return Wrap(
+          spacing: 14,
+          runSpacing: 14,
+          children: kpis.map((kpi) {
             final Color iconColor = kpi['color'] as Color;
-
-            return Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-              decoration: AppTheme.glassCard(isDark: isDark),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          kpi['title'] as String,
+            return SizedBox(
+              width: cardWidth,
+              height: 130,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                decoration: AppTheme.glassCard(isDark: isDark),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            kpi['title'] as String,
+                            style: GoogleFonts.inter(
+                              fontSize: 11.5,
+                              fontWeight: FontWeight.w600,
+                              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                            color: iconColor.withOpacity(0.15),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Icon(kpi['icon'] as IconData, size: 14, color: iconColor),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      kpi['value'] as String,
+                      style: GoogleFonts.poppins(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: isDark ? Colors.white : const Color(0xFF0F172A),
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerLeft,
+                          child: Row(
+                            children: [
+                              Icon(
+                                (kpi['isPositive'] as bool) ? LucideIcons.arrowUpRight : LucideIcons.arrowDownRight,
+                                size: 13,
+                                color: (kpi['isPositive'] as bool) ? AppTheme.primary : AppTheme.danger,
+                              ),
+                              const SizedBox(width: 3),
+                              Text(
+                                kpi['change'] as String,
+                                style: GoogleFonts.inter(
+                                  fontSize: 10.5,
+                                  fontWeight: FontWeight.bold,
+                                  color: (kpi['isPositive'] as bool) ? AppTheme.primary : AppTheme.danger,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          kpi['subText'] as String,
                           style: GoogleFonts.inter(
-                            fontSize: 11.5,
-                            fontWeight: FontWeight.w600,
-                            color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                            fontSize: 9.5,
+                            color: isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8),
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                          color: iconColor.withOpacity(0.15),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Icon(kpi['icon'] as IconData, size: 14, color: iconColor),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    kpi['value'] as String,
-                    style: GoogleFonts.poppins(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: isDark ? Colors.white : const Color(0xFF0F172A),
+                      ],
                     ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        alignment: Alignment.centerLeft,
-                        child: Row(
-                          children: [
-                            Icon(
-                              (kpi['isPositive'] as bool) ? LucideIcons.arrowUpRight : LucideIcons.arrowDownRight,
-                              size: 13,
-                              color: (kpi['isPositive'] as bool) ? AppTheme.primary : AppTheme.danger,
-                            ),
-                            const SizedBox(width: 3),
-                            Text(
-                              kpi['change'] as String,
-                              style: GoogleFonts.inter(
-                                fontSize: 10.5,
-                                fontWeight: FontWeight.bold,
-                                color: (kpi['isPositive'] as bool) ? AppTheme.primary : AppTheme.danger,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 2),
-                      Text(
-                        kpi['subText'] as String,
-                        style: GoogleFonts.inter(
-                          fontSize: 9.5,
-                          color: isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8),
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
-          },
+          }).toList(),
         );
       },
     );
