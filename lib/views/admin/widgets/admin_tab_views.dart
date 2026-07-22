@@ -389,11 +389,30 @@ class AdminTabViews {
         Container(
           decoration: AppTheme.glassCard(isDark: isDark),
           padding: const EdgeInsets.all(20),
-          child: Row(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(child: _metricTile("Active Customers", "8,932", "+12.4% vs last week", AppTheme.primary, isDark)),
-              Expanded(child: _metricTile("Repeat Customer Rate", "78.4%", "Target: > 75.0%", AppTheme.secondary, isDark)),
-              Expanded(child: _metricTile("Avg Customer LTV", "₹4,850", "3.2 orders/month", AppTheme.accent, isDark)),
+              Text("Customer Retention Metrics", style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 15, color: isDark ? Colors.white : Colors.black87)),
+              const SizedBox(height: 12),
+              Wrap(
+                spacing: 12,
+                runSpacing: 12,
+                children: [
+                  SizedBox(
+                    width: 240,
+                    child: _metricTile("Active Customers", "8,932", "+12.4% vs last week", AppTheme.primary, isDark),
+                  ),
+                  SizedBox(
+                    width: 240,
+                    child: _metricTile("Repeat Customer Rate", "78.4%", "Target: > 75.0%", AppTheme.secondary, isDark),
+                  ),
+                  SizedBox(
+                    width: 240,
+                    child: _metricTile("Avg Customer LTV", "₹4,850", "3.2 orders/month", AppTheme.accent, isDark),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -487,11 +506,30 @@ class AdminTabViews {
         Container(
           decoration: AppTheme.glassCard(isDark: isDark),
           padding: const EdgeInsets.all(20),
-          child: Row(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(child: _metricTile("Today Settled Revenue", "₹32,45,678", "Instant Bank Payout", AppTheme.primary, isDark)),
-              Expanded(child: _metricTile("Pending Payouts", "₹4,56,789", "Settlement T+1", AppTheme.accent, isDark)),
-              Expanded(child: _metricTile("UPI / PhonePe Share", "64.2%", "Primary Gateway", AppTheme.secondary, isDark)),
+              Text("Settled Revenue & Settlement Payouts", style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 15, color: isDark ? Colors.white : Colors.black87)),
+              const SizedBox(height: 12),
+              Wrap(
+                spacing: 12,
+                runSpacing: 12,
+                children: [
+                  SizedBox(
+                    width: 240,
+                    child: _metricTile("Today Settled Revenue", "₹32,45,678", "Instant Bank Payout", AppTheme.primary, isDark),
+                  ),
+                  SizedBox(
+                    width: 240,
+                    child: _metricTile("Pending Payouts", "₹4,56,789", "Settlement T+1", AppTheme.accent, isDark),
+                  ),
+                  SizedBox(
+                    width: 240,
+                    child: _metricTile("UPI / PhonePe Share", "64.2%", "Primary Gateway", AppTheme.secondary, isDark),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -685,7 +723,6 @@ class AdminTabViews {
 
   static Widget _metricTile(String title, String mainVal, String subVal, Color color, bool isDark) {
     return Container(
-      margin: const EdgeInsets.only(right: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(color: color.withOpacity(0.1), borderRadius: BorderRadius.circular(12), border: Border.all(color: color.withOpacity(0.2))),
       child: Column(
