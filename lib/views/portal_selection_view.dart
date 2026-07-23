@@ -173,7 +173,7 @@ class _PortalSelectionViewState extends State<PortalSelectionView> {
                       builder: (context, constraints) {
                         final cards = [
                           _buildRoleCard(
-                            roleId: "ADMIN",
+                            roleId: "SUPER_ADMIN",
                             title: "Super Admin Portal",
                             subtitle: "Desktop Executive Control Center",
                             badge: "FULL WEB DASHBOARD",
@@ -189,6 +189,24 @@ class _PortalSelectionViewState extends State<PortalSelectionView> {
                             ],
                             buttonLabel: "Launch Super Admin Portal",
                             accentColor: AppTheme.primary,
+                          ),
+                          _buildRoleCard(
+                            roleId: "ADMIN",
+                            title: "Store Owner Portal",
+                            subtitle: "Dark Store Operations & SKU Control",
+                            badge: "STORE MANAGEMENT",
+                            badgeColor: const Color(0xFFF59E0B),
+                            icon: LucideIcons.store,
+                            description:
+                                "Dedicated manager workspace to control dark store fulfillment, real-time inventory level alerts, custom store promotions, and local delivery fleets.",
+                            features: [
+                              "Store Inventory & Catalog Management",
+                              "Local Fulfillment & Order Dispatching",
+                              "Rider Roster & Local Store Performance",
+                              "Promo Campaigns & Local Coupon Codes",
+                            ],
+                            buttonLabel: "Launch Store Owner Portal",
+                            accentColor: const Color(0xFFF59E0B),
                           ),
                           _buildRoleCard(
                             roleId: "RIDER",
@@ -228,28 +246,20 @@ class _PortalSelectionViewState extends State<PortalSelectionView> {
                           ),
                         ];
 
-                        if (constraints.maxWidth > 1100) {
-                          return Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(child: cards[0]),
-                              const SizedBox(width: 24),
-                              Expanded(child: cards[1]),
-                              const SizedBox(width: 24),
-                              Expanded(child: cards[2]),
-                            ],
-                          );
-                        } else {
-                          return Column(
-                            children: [
-                              cards[0],
-                              const SizedBox(height: 24),
-                              cards[1],
-                              const SizedBox(height: 24),
-                              cards[2],
-                            ],
-                          );
-                        }
+                        final double cardWidth = constraints.maxWidth > 900
+                            ? (constraints.maxWidth - 24) / 2
+                            : constraints.maxWidth;
+
+                        return Wrap(
+                          spacing: 24,
+                          runSpacing: 24,
+                          children: cards.map((card) {
+                            return SizedBox(
+                              width: cardWidth,
+                              child: card,
+                            );
+                          }).toList(),
+                        );
                       },
                     ),
 

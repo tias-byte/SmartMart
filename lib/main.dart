@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'theme/app_theme.dart';
 import 'views/portal_selection_view.dart';
 import 'views/login_view.dart';
+import 'views/admin/admin_dashboard_view.dart';
 import 'views/super_admin/super_admin_dashboard_view.dart';
 import 'views/rider/rider_dashboard_view.dart';
 import 'views/customer/customer_dashboard_view.dart';
@@ -76,8 +77,15 @@ class _SmartMartAppState extends State<SmartMartApp> {
           },
         );
 
-      case "ADMIN":
+      case "SUPER_ADMIN":
         return SuperAdminDashboardView(
+          isDark: isDark,
+          onToggleTheme: _toggleTheme,
+          onLogout: () => _setRoute("PORTAL_SELECTION"),
+        );
+
+      case "ADMIN":
+        return AdminDashboardView(
           isDark: isDark,
           onToggleTheme: _toggleTheme,
           onLogout: () => _setRoute("PORTAL_SELECTION"),

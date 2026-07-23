@@ -20,7 +20,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  String selectedRole = "ADMIN"; // "ADMIN" or "RIDER"
+  String selectedRole = "SUPER_ADMIN"; // "SUPER_ADMIN", "ADMIN", "RIDER", "CUSTOMER"
   late TextEditingController emailController;
   late TextEditingController passwordController;
   bool isPasswordVisible = false;
@@ -29,14 +29,17 @@ class _LoginViewState extends State<LoginView> {
   @override
   void initState() {
     super.initState();
-    emailController = TextEditingController(text: "admin@smartmart.ai");
-    passwordController = TextEditingController(text: "admin123");
+    emailController = TextEditingController(text: "superadmin@smartmart.ai");
+    passwordController = TextEditingController(text: "superadmin123");
   }
 
   void _updateDefaultCredentials(String role) {
     setState(() {
       selectedRole = role;
-      if (role == "ADMIN") {
+      if (role == "SUPER_ADMIN") {
+        emailController.text = "superadmin@smartmart.ai";
+        passwordController.text = "superadmin123";
+      } else if (role == "ADMIN") {
         emailController.text = "admin@smartmart.ai";
         passwordController.text = "admin123";
       } else if (role == "RIDER") {
@@ -192,25 +195,36 @@ class _LoginViewState extends State<LoginView> {
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Row(
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
                           children: [
-                            Expanded(
+                            SizedBox(
+                              width: 140,
                               child: _rolePill(
-                                role: "ADMIN",
+                                role: "SUPER_ADMIN",
                                 label: "Super Admin",
                                 icon: LucideIcons.shield,
                               ),
                             ),
-                            const SizedBox(width: 8),
-                            Expanded(
+                            SizedBox(
+                              width: 140,
+                              child: _rolePill(
+                                role: "ADMIN",
+                                label: "Store Owner",
+                                icon: LucideIcons.store,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 140,
                               child: _rolePill(
                                 role: "RIDER",
                                 label: "Rider Partner",
                                 icon: LucideIcons.bike,
                               ),
                             ),
-                            const SizedBox(width: 8),
-                            Expanded(
+                            SizedBox(
+                              width: 140,
                               child: _rolePill(
                                 role: "CUSTOMER",
                                 label: "Customer App",
@@ -344,7 +358,7 @@ class _LoginViewState extends State<LoginView> {
                               widget.onLoginSuccess(selectedRole, emailController.text);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: selectedRole == "ADMIN" ? AppTheme.primary : const Color(0xFF10B981),
+                              backgroundColor: selectedRole == "SUPER_ADMIN" ? AppTheme.primary : (selectedRole == "ADMIN" ? const Color(0xFFF59E0B) : (selectedRole == "RIDER" ? const Color(0xFF10B981) : const Color(0xFF8B5CF6))),
                               foregroundColor: Colors.white,
                               elevation: 2,
                               shape: RoundedRectangleBorder(
@@ -355,7 +369,7 @@ class _LoginViewState extends State<LoginView> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Sign In as ${selectedRole == "ADMIN" ? "Super Admin" : "Rider Partner"}",
+                                  "Sign In as ${selectedRole == "SUPER_ADMIN" ? "Super Admin" : (selectedRole == "ADMIN" ? "Store Owner" : (selectedRole == "RIDER" ? "Rider Partner" : "Customer App"))}",
                                   style: GoogleFonts.poppins(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -391,11 +405,19 @@ class _LoginViewState extends State<LoginView> {
 
                         // Quick Login Buttons
                         _quickLoginTile(
-                          role: "ADMIN",
+                          role: "SUPER_ADMIN",
                           title: "Quick Login: Super Admin",
-                          email: "admin@smartmart.ai",
+                          email: "superadmin@smartmart.ai",
                           icon: LucideIcons.layoutDashboard,
                           color: AppTheme.primary,
+                        ),
+                        const SizedBox(height: 10),
+                        _quickLoginTile(
+                          role: "ADMIN",
+                          title: "Quick Login: Store Owner",
+                          email: "admin@smartmart.ai",
+                          icon: LucideIcons.store,
+                          color: const Color(0xFFF59E0B),
                         ),
                         const SizedBox(height: 10),
                         _quickLoginTile(
@@ -404,6 +426,14 @@ class _LoginViewState extends State<LoginView> {
                           email: "rider.rohan@smartmart.ai",
                           icon: LucideIcons.bike,
                           color: const Color(0xFF10B981),
+                        ),
+                        const SizedBox(height: 10),
+                        _quickLoginTile(
+                          role: "CUSTOMER",
+                          title: "Quick Login: Customer App",
+                          email: "customer.riya@smartmart.ai",
+                          icon: LucideIcons.shoppingBag,
+                          color: const Color(0xFF8B5CF6),
                         ),
                       ],
                     ),
@@ -421,6 +451,17 @@ class _LoginViewState extends State<LoginView> {
     final bool isActive = selectedRole == role;
     final isDark = widget.isDark;
 
+    Color activeColor;
+    if (role == "SUPER_ADMIN") {
+      activeColor = AppTheme.primary;
+    } else if (role == "ADMIN") {
+      activeColor = const Color(0xFFF59E0B);
+    } else if (role == "RIDER") {
+      activeColor = const Color(0xFF10B981);
+    } else {
+      activeColor = const Color(0xFF8B5CF6);
+    }
+
     return InkWell(
       onTap: () => _updateDefaultCredentials(role),
       borderRadius: BorderRadius.circular(12),
@@ -429,7 +470,7 @@ class _LoginViewState extends State<LoginView> {
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
           color: isActive
-              ? (role == "ADMIN" ? AppTheme.primary : const Color(0xFF10B981))
+              ? activeColor
               : (isDark ? AppTheme.cardDarkElevated : const Color(0xFFF1F5F9)),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
