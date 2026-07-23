@@ -20,16 +20,15 @@ class AdminSidebar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final navItems = [
-      {'title': 'Dashboard', 'icon': LucideIcons.layoutDashboard, 'tag': 'BI Live'},
-      {'title': 'Orders', 'icon': LucideIcons.shoppingBag, 'tag': '12.4k'},
-      {'title': 'Stores', 'icon': LucideIcons.store, 'tag': '245 Hubs'},
+      {'title': 'Dashboard', 'icon': LucideIcons.layoutDashboard, 'tag': 'Store #14'},
+      {'title': 'Orders', 'icon': LucideIcons.shoppingBag, 'tag': '248 Today'},
       {'title': 'Categories', 'icon': LucideIcons.grid, 'tag': '6 Sectors'},
-      {'title': 'Customers', 'icon': LucideIcons.users, 'tag': '78.4% Ret'},
-      {'title': 'Riders', 'icon': LucideIcons.bike, 'tag': '88.4% Duty'},
-      {'title': 'Payments', 'icon': LucideIcons.creditCard, 'tag': '99.4% Succ'},
-      {'title': 'Coupons', 'icon': LucideIcons.ticket, 'tag': '24 Active'},
-      {'title': 'Reports', 'icon': LucideIcons.fileText, 'tag': 'Auto Export'},
-      {'title': 'Settings', 'icon': LucideIcons.settings, 'tag': 'Guardrails'},
+      {'title': 'Customers', 'icon': LucideIcons.users, 'tag': '72.4% Ret'},
+      {'title': 'Riders', 'icon': LucideIcons.bike, 'tag': '8 active'},
+      {'title': 'Payments', 'icon': LucideIcons.creditCard, 'tag': '99.8% Succ'},
+      {'title': 'Coupons', 'icon': LucideIcons.ticket, 'tag': '3 Active'},
+      {'title': 'Reports', 'icon': LucideIcons.fileText, 'tag': 'Weekly'},
+      {'title': 'Settings', 'icon': LucideIcons.settings, 'tag': 'Local'},
     ];
 
     return Container(

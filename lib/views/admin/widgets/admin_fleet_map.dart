@@ -55,7 +55,7 @@ class AdminFleetMap extends StatelessWidget {
                               ),
                               const SizedBox(width: 8),
                               Text(
-                                "Live Fleet & Dispatch Heatmap (1,245 Active • 88.4% Duty)",
+                                "Dark Store #14 Local Deliveries (8 Active Riders • 100% SLA)",
                                 style: GoogleFonts.poppins(
                                   fontSize: 12.5,
                                   fontWeight: FontWeight.bold,

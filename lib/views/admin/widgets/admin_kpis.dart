@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../theme/app_theme.dart';
-import '../../../models/quick_commerce_models.dart';
 
 class AdminKPIs extends StatelessWidget {
   final bool isDark;
@@ -13,55 +12,55 @@ class AdminKPIs extends StatelessWidget {
   Widget build(BuildContext context) {
     final kpis = [
       {
-        'title': "Total Gross Sales",
-        'value': QuickCommerceData.todayRevenue,
-        'change': "+21.4% vs last week",
-        'subText': "AOV: ${QuickCommerceData.avgOrderValue} • Margin: 24.8%",
+        'title': "Store Gross Sales Today",
+        'value': "₹84,520",
+        'change': "+15.4% vs last week",
+        'subText': "AOV: ₹340 • Margin: 24.8%",
         'isPositive': true,
         'icon': LucideIcons.indianRupee,
         'color': AppTheme.primary,
       },
       {
-        'title': "Total Orders Processed",
-        'value': QuickCommerceData.todayOrders,
-        'change': "+18.6% vs last week",
-        'subText': "Velocity: 14.2 orders/min",
+        'title': "Store Orders Processed",
+        'value': "248",
+        'change': "+12.6% vs last week",
+        'subText': "Velocity: 2.1 orders/min",
         'isPositive': true,
         'icon': LucideIcons.shoppingBag,
         'color': const Color(0xFF8B5CF6),
       },
       {
         'title': "Delivery SLA Adherence",
-        'value': QuickCommerceData.slaAdherence,
-        'change': "+2.4% SLA uplift",
-        'subText': "Avg Delivery Time: ${QuickCommerceData.avgDeliveryTime}",
+        'value': "98.4%",
+        'change': "+1.2% SLA uplift",
+        'subText': "Avg Local Delivery Time: 11.2 mins",
         'isPositive': true,
         'icon': LucideIcons.clock,
         'color': AppTheme.secondary,
       },
       {
-        'title': "Active Fleet Utilization",
-        'value': QuickCommerceData.activeRiders,
-        'change': "88.4% On-road Duty",
-        'subText': "1,245 Riders Active • 98.5% Acceptance",
+        'title': "Active Local Fleet",
+        'value': "8 / 10",
+        'change': "100% SLA compliance",
+        'subText': "8 on-duty riders • 2 on break",
         'isPositive': true,
         'icon': LucideIcons.bike,
         'color': AppTheme.accent,
       },
       {
         'title': "Customer Retention Rate",
-        'value': QuickCommerceData.repeatCustomerRate,
-        'change': "+5.1% Repeat Order Uplift",
-        'subText': "${QuickCommerceData.newCustomers} Active Users • LTV ₹4,850",
+        'value': "72.4%",
+        'change': "+3.4% Repeat Order Uplift",
+        'subText': "180 Active Users • Avg LTV ₹4,850",
         'isPositive': true,
         'icon': LucideIcons.userCheck,
         'color': const Color(0xFF10B981),
       },
       {
-        'title': "Dark Store Operations",
-        'value': QuickCommerceData.onlineStores,
-        'change': "96.5% Stock Health",
-        'subText': "245 Stores Online • 1.8% Stockout Risk",
+        'title': "Local Store Stock Health",
+        'value': "98.2%",
+        'change': "12 SKUs Low Stock",
+        'subText': "Next replenishment batch at 4:00 PM",
         'isPositive': true,
         'icon': LucideIcons.store,
         'color': AppTheme.danger,

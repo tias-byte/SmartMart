@@ -49,9 +49,9 @@ class AdminTabViews {
       children: [
         _buildTabHeader(
           isDark,
-          title: "Order Telemetry & SLA Dispatch Center",
-          subtitle: "Live dispatch log across 245 dark stores with real-time SLA breach monitoring",
-          tag: "12,458 TODAY",
+          title: "Store Order Telemetry & SLA Center",
+          subtitle: "Live local dispatch log for Dark Store #14 with real-time SLA breach tracking",
+          tag: "248 TODAY",
           icon: LucideIcons.shoppingBag,
         ),
         const SizedBox(height: 20),
@@ -174,9 +174,9 @@ class AdminTabViews {
       children: [
         _buildTabHeader(
           isDark,
-          title: "Product SKUs & Inventory Velocity",
-          subtitle: "Catalog analytics across 45,000 SKUs with margin telemetry and stockout risk badges",
-          tag: "45,000 SKUs",
+          title: "Product SKUs & Local Inventory",
+          subtitle: "Catalog stock levels and inventory velocity for Dark Store #14",
+          tag: "1,850 SKUs",
           icon: LucideIcons.package,
         ),
         const SizedBox(height: 20),
@@ -427,9 +427,9 @@ class AdminTabViews {
       children: [
         _buildTabHeader(
           isDark,
-          title: "Fleet Dispatch & Rider Performance Roster",
-          subtitle: "1,245 active riders online • 88.4% duty utilization rate • 98.5% acceptance speed",
-          tag: "${QuickCommerceData.riderLeaderboard.length} ACTIVE",
+          title: "Local Fleet Dispatch & Rider Roster",
+          subtitle: "8 active riders online • 2 on break • 100% SLA compliance rate for Dark Store #14",
+          tag: "10 RIDERS",
           icon: LucideIcons.bike,
           trailing: ElevatedButton.icon(
             style: ElevatedButton.styleFrom(

@@ -77,7 +77,7 @@ class AdminRiderAnalytics extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      "Realtime allocation across 1,245 on-duty riders",
+                      "Realtime allocation for Dark Store #14 local fleet",
                       style: GoogleFonts.inter(
                         fontSize: 11,
                         color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
