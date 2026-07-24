@@ -123,7 +123,7 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
                                               Container(
                                                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                                 decoration: BoxDecoration(
-                                                  color: AppTheme.primary.withOpacity(0.15),
+                                                  color: AppTheme.primary.withValues(alpha: 0.15),
                                                   borderRadius: BorderRadius.circular(6),
                                                 ),
                                                 child: Row(
@@ -169,14 +169,14 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
-                                                const Icon(LucideIcons.store, size: 14, color: AppTheme.primary),
+                                                Icon(LucideIcons.store, size: 14, color: AppTheme.primary),
                                                 const SizedBox(width: 8),
                                                 Text(
                                                   selectedStoreFilter,
                                                   style: GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w600, color: widget.isDark ? Colors.white : Colors.black),
                                                 ),
                                                 const SizedBox(width: 6),
-                                                const Icon(LucideIcons.chevronDown, size: 14, color: Color(0xFF64748B)),
+                                                Icon(LucideIcons.chevronDown, size: 14, color: const Color(0xFF64748B)),
                                               ],
                                             ),
                                           ),
@@ -319,7 +319,7 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
             children: [
               Row(
                 children: [
-                  const Icon(LucideIcons.activity, color: AppTheme.primary, size: 20),
+                  Icon(LucideIcons.activity, color: AppTheme.primary, size: 20),
                   const SizedBox(width: 8),
                   Text(
                     "Telemetry Inspector: ${order.id}",
@@ -327,7 +327,7 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
                   ),
                 ],
               ),
-              IconButton(icon: const Icon(LucideIcons.x), onPressed: () => Navigator.pop(context)),
+              IconButton(icon: Icon(LucideIcons.x), onPressed: () => Navigator.pop(context)),
             ],
           ),
           content: SizedBox(

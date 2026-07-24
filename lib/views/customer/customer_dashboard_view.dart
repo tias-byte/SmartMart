@@ -257,7 +257,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF10B981).withOpacity(0.3),
+            color: const Color(0xFF10B981).withValues(alpha: 0.3),
             blurRadius: 16,
             offset: const Offset(0, 6),
           ),
@@ -273,7 +273,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
@@ -287,20 +287,18 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  "Fresh Groceries Delivered in 8-10 Mins",
+                  "⚡ Superfast Quick Commerce",
                   style: GoogleFonts.poppins(
-                    fontSize: 22,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    height: 1.2,
                   ),
                 ),
-                const SizedBox(height: 6),
                 Text(
                   "Up to 50% OFF on Dairy, Eggs & Daily Breakfast Essentials",
                   style: GoogleFonts.inter(
                     fontSize: 13,
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.white.withValues(alpha: 0.9),
                   ),
                 ),
               ],
@@ -310,7 +308,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.15),
+              color: Colors.white.withValues(alpha: 0.15),
               shape: BoxShape.circle,
             ),
             child: const Icon(LucideIcons.zap, color: Colors.yellowAccent, size: 40),
@@ -390,12 +388,12 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
                 decoration: BoxDecoration(
                   color: isSelected
                       ? AppTheme.primary
-                      : (isDark ? AppTheme.cardDarkElevated : color.withOpacity(0.35)),
+                      : (isDark ? AppTheme.cardDarkElevated : color.withValues(alpha: 0.35)),
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
                     color: isSelected
                         ? AppTheme.primary
-                        : (isDark ? AppTheme.borderDarkActive : color.withOpacity(0.55)),
+                        : (isDark ? AppTheme.borderDarkActive : color.withValues(alpha: 0.55)),
                     width: 1.5,
                   ),
                 ),
@@ -443,7 +441,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
           padding: const EdgeInsets.symmetric(vertical: 40.0),
           child: Column(
             children: [
-              const Icon(LucideIcons.searchCode, size: 48, color: AppTheme.danger),
+              Icon(LucideIcons.searchCode, size: 48, color: AppTheme.danger),
               const SizedBox(height: 12),
               Text(
                 "No products found",
@@ -504,7 +502,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
                       width: 80,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: tintColor.withOpacity(0.08),
+                        color: tintColor.withValues(alpha: 0.08),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Text(image, style: const TextStyle(fontSize: 42)),
@@ -577,7 +575,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
                               child: Row(
                                 children: [
                                   IconButton(
-                                    icon: const Icon(LucideIcons.minus, size: 14, color: Colors.white),
+                                    icon: Icon(LucideIcons.minus, size: 14, color: Colors.white),
                                     onPressed: () {
                                       setState(() {
                                         if (qty > 1) {
@@ -596,7 +594,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
                                     ),
                                   ),
                                   IconButton(
-                                    icon: const Icon(LucideIcons.plus, size: 14, color: Colors.white),
+                                    icon: Icon(LucideIcons.plus, size: 14, color: Colors.white),
                                     onPressed: () {
                                       setState(() => cartItems[name] = qty + 1);
                                     },
@@ -624,7 +622,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
         color: isDark ? AppTheme.cardDark : Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppTheme.primary.withOpacity(0.4),
+          color: AppTheme.primary.withValues(alpha: 0.4),
         ),
       ),
       child: Column(
@@ -635,7 +633,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
             children: [
               Row(
                 children: [
-                  const Icon(LucideIcons.bike, color: AppTheme.primary, size: 22),
+                  Icon(LucideIcons.bike, color: AppTheme.primary, size: 22),
                   const SizedBox(width: 10),
                   Text(
                     "Live Delivery Stream: ${order.id}",
@@ -650,7 +648,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppTheme.primary.withOpacity(0.15),
+                  color: AppTheme.primary.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -699,7 +697,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
         color: AppTheme.primary,
         boxShadow: [
           BoxShadow(
-            color: AppTheme.primary.withOpacity(0.3),
+            color: AppTheme.primary.withValues(alpha: 0.3),
             blurRadius: 12,
             offset: const Offset(0, -4),
           ),
@@ -716,7 +714,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
                 "$count items selected",
                 style: GoogleFonts.inter(
                   fontSize: 12,
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha: 0.9),
                 ),
               ),
               Text(
@@ -755,7 +753,7 @@ class _CustomerDashboardViewState extends State<CustomerDashboardView> {
                   ),
                 ),
                 const SizedBox(width: 8),
-                const Icon(LucideIcons.arrowRight, size: 16),
+                Icon(LucideIcons.arrowRight, size: 16),
               ],
             ),
           ),
